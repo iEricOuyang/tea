@@ -7,7 +7,7 @@
         </div>
         <div class="content">
             <div class="teaCultureItem" v-for="(item,index) in cultureList"  @click="goCultureDetail(index)" :style="{height:imgHeight}">
-                <div class="teaImg"><img :src="item.sampleteaImg" :style="{height:imgHeight}"/></div>
+                <div class="teaImg"><img :src="item.sampleteaImg" :style="{height:imgHeight,width:imgWidth+'px'}"/></div>
                 <div class="teaDescribe">
                     <div class="describeTitle">{{item.sampleteaName}}</div>
                     <div class="describeContent">{{item.sampleteaIntroduce}}</div>
@@ -25,7 +25,8 @@
                 cultureTypeList:[],
                 cultureList:[],
                 pageNow:1,
-                imgWidth:'100%'
+                imgWidth:'100%',
+                interval:null
             }
         },
         computed:{
@@ -41,6 +42,9 @@
             showTeaCultureList:function(index){
                 var _this=this;
                 _this.pageNow=1;
+                if(this.interval!=null){
+                    clearInterval(this.interval);
+                }
                 for(var i=0;i<this.cultureTypeList.length;i++){
                     if(i==index){
                         this.cultureTypeList[i].choosed=true;
@@ -66,9 +70,9 @@
                         // _this.imgWidth=_this.$refs.foo[0].width;
                         _this.imgWidth=$('.content').children('.teaCultureItem:first').find('img').width();
                     })
-                   var interval=setInterval(function(){
+                   _this.interval=setInterval(function(){
                         if(_this.pageNow==Math.ceil(response.body.total/8)){
-                            clearInterval(interval);
+                            clearInterval(_this.interval);
                         }else{
                             _this.pageNow++;
                             _this.utils.ajax(_this.utils.host,'getSampleteaList.json',{params: {teaclasstionId:_this.teaTypeList[index].teaclasstionId,pageNow:_this.pageNow,pageSize:8}},teaCultureList_callback);

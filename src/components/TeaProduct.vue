@@ -38,7 +38,8 @@
                 teaList:[],
                 imgWidth:0,
                 currentTypeIndex:0,
-                pageNow:1
+                pageNow:1,
+                interval:null
             }
         },
         components:{
@@ -57,6 +58,9 @@
                 var _this=this;
                 this.currentTypeIndex=index;
                 _this.pageNow=1;
+                if(this.interval!=null){
+                    clearInterval(this.interval);
+                }
                 for(var i=0;i<this.teaTypeList.length;i++){
                     if(i==index){
                         this.teaTypeList[i].choosed=true;
@@ -82,9 +86,9 @@
                         // _this.imgWidth=_this.$refs.foo[0].width;
                         _this.imgWidth=$('.teaList').children('.teaGroup:first').children('.teaItem:first').find('img').width();
                     })
-                    var interval=setInterval(function(){
+                    _this.interval=setInterval(function(){
                         if(_this.pageNow==Math.ceil(response.body.total/8)){
-                            clearInterval(interval);
+                            clearInterval(_this.interval);
                         }else{
                             _this.pageNow++;
                             _this.utils.ajax(_this.utils.host,'getTeaList.json',{params: {teatypeId:_this.teaTypeList[index].teatypeId,pageNow:_this.pageNow,pageSize:8}},teaList_callback);
