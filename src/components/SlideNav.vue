@@ -38,11 +38,7 @@
             toggleMenu:function(){
                 this.toAnimate=!this.toAnimate;
                 this.toBackAnimate=!this.toAnimate;
-                if(this.toAnimate){
-                    this.slideMenuContainerStyle.marginLeft='0%'
-                }else{
-                    this.slideMenuContainerStyle.marginLeft='-70%'
-                }
+                this.slideMenuContainerStyle.marginLeft=this.toAnimate ? '0%':'-70%';
             }
         },
         mounted:function(){
@@ -54,171 +50,37 @@
     }
 </script>
 <style scoped>
-     @-webkit-keyframes slideStyle{
-        /*0% {margin-left:0%;}
-        100% {margin-left:70%;}*/
-        0% {
-            transform:translateX(0%);
-            -ms-transform:translateX(0%);	
-            -moz-transform:rtranslateX(0%);	
-            -webkit-transform:translateX(0%); 
-            -o-transform:translateX(0%); 	
-        }
-        100% {
-            transform:translateX(70%);
-            -ms-transform:translateX(70%);	
-            -moz-transform:rtranslateX(70%);	
-            -webkit-transform:translateX(70%); 
-            -o-transform:translateX(70%); 	
-        }
-        
-     }
-     @-moz-keyframes slideStyle{
-        0% {
-            transform:translateX(0%);
-            -ms-transform:translateX(0%);	
-            -moz-transform:rtranslateX(0%);	
-            -webkit-transform:translateX(0%); 
-            -o-transform:translateX(0%); 	
-        }
-        100% {
-            transform:translateX(70%);
-            -ms-transform:translateX(70%);	
-            -moz-transform:rtranslateX(70%);	
-            -webkit-transform:translateX(70%); 
-            -o-transform:translateX(70%); 	
-        }    }
-     @-o-keyframes slideStyle{
-        0% {
-            transform:translateX(0%);
-            -ms-transform:translateX(0%);	
-            -moz-transform:rtranslateX(0%);	
-            -webkit-transform:translateX(0%); 
-            -o-transform:translateX(0%); 	
-        }
-        100% {
-            transform:translateX(70%);
-            -ms-transform:translateX(70%);	
-            -moz-transform:rtranslateX(70%);	
-            -webkit-transform:translateX(70%); 
-            -o-transform:translateX(70%); 	
-        }    }
-     @keyframes slideStyle{
-        0% {
-            transform:translateX(0%);
-            -ms-transform:translateX(0%);	
-            -moz-transform:rtranslateX(0%);	
-            -webkit-transform:translateX(0%); 
-            -o-transform:translateX(0%); 	
-        }
-        100% {
-            transform:translateX(70%);
-            -ms-transform:translateX(70%);	
-            -moz-transform:rtranslateX(70%);	
-            -webkit-transform:translateX(70%); 
-            -o-transform:translateX(70%); 	
-        }    
-     }
-     @-webkit-keyframes slideBackStyle{
-        0% {
-            transform:translateX(70%);
-            -ms-transform:translateX(70%);	
-            -moz-transform:rtranslateX(70%);	
-            -webkit-transform:translateX(70%); 
-            -o-transform:translateX(70%); 	
-        }
-        100% {
-            transform:translateX(0%);
-            -ms-transform:translateX(0%);	
-            -moz-transform:rtranslateX(0%);	
-            -webkit-transform:translateX(0%); 
-            -o-transform:translateX(0%); 	
-        }
-        
-     }
-     @-moz-keyframes slideBackStyle{
-        0% {
-            transform:translateX(70%);
-            -ms-transform:translateX(70%);	
-            -moz-transform:rtranslateX(70%);	
-            -webkit-transform:translateX(70%); 
-            -o-transform:translateX(70%); 	
-        }
-        100% {
-            transform:translateX(0%);
-            -ms-transform:translateX(0%);	
-            -moz-transform:rtranslateX(0%);	
-            -webkit-transform:translateX(0%); 
-            -o-transform:translateX(0%); 	
-        }
-    }
-     @-o-keyframes slideBackStyle{
-        0% {
-            transform:translateX(70%);
-            -ms-transform:translateX(70%);	
-            -moz-transform:rtranslateX(70%);	
-            -webkit-transform:translateX(70%); 
-            -o-transform:translateX(70%); 	
-        }
-        100% {
-            transform:translateX(0%);
-            -ms-transform:translateX(0%);	
-            -moz-transform:rtranslateX(0%);	
-            -webkit-transform:translateX(0%); 
-            -o-transform:translateX(0%); 	
-        }
-    }
-     @keyframes slideBackStyle{
-        0% {
-            transform:translateX(70%);
-            -ms-transform:translateX(70%);	
-            -moz-transform:rtranslateX(70%);	
-            -webkit-transform:translateX(70%); 
-            -o-transform:translateX(70%); 	
-        }
-        100% {
-            transform:translateX(0%);
-            -ms-transform:translateX(0%);	
-            -moz-transform:rtranslateX(0%);	
-            -webkit-transform:translateX(0%); 
-            -o-transform:translateX(0%); 	
-        }
-    }
     .menuSlideAnimate{
-        /*animation:slideStyle 400ms linear;
-        -webkit-animation:slideStyle 400ms linear;
-        -moz-animation:slideStyle 400ms linear;
-        -o-animation:slideStyle 400ms linear;*/
-        margin-left:0%;
-        /*animation-fill-mode:forwards;*/
+        transition: margin-left 400ms;
+        -moz-transition: margin-left 400ms; /* Firefox 4 */
+        -webkit-transition: margin-left 400ms; /* Safari 和 Chrome */
+        -o-transition: margin-left 400ms; /* Opera */
+        animation-fill-mode:forwards;
         
     }
     .menuSlideBackAnimate{
-        /*animation:slideBackStyle 400ms linear;
-        -webkit-animation:slideBackStyle 400ms linear;
-        -moz-animation:slideBackStyle 400ms linear;
-        -o-animation:slideBackStyle 400ms linear;*/
-        margin-left:-70%;
-        /*animation-fill-mode:forwards;*/
+        transition: margin-left 400ms;
+        -moz-transition: margin-left 400ms; 
+        -webkit-transition: margin-left 400ms; 
+        -o-transition: margin-left 400ms; 
+        animation-fill-mode:forwards;
     }
 
     .pageSlideAnimate{
-        /*-webkit-animation:slideStyle 400ms linear;
-        -moz-animation:slideStyle 400ms linear;
-        -o-animation:slideStyle 400ms linear;
-        -ms-animation:slideStyle 400ms linear;
-        animation:slideStyle 400ms linear;*/
         margin-left:70%;
-        /*animation-fill-mode:forwards;*/
+        transition: margin-left 400ms;
+        -moz-transition: margin-left 400ms; /* Firefox 4 */
+        -webkit-transition: margin-left 400ms; /* Safari 和 Chrome */
+        -o-transition: margin-left 400ms; /* Opera */
+        animation-fill-mode:forwards;
     }
     .pageSlideBackAnimate{
-        /*animation:slideBackStyle 400ms linear;
-        -webkit-animation:slideBackStyle 400ms linear;
-        -moz-animation:slideBackStyle 400ms linear;
-        -o-animation:slideBackStyle 400ms linear;*/
-
         margin-left:0%;
-        /*animation-fill-mode:forwards;*/
+        transition: margin-left 400ms;
+        -moz-transition: margin-left 400ms; /* Firefox 4 */
+        -webkit-transition: margin-left 400ms; /* Safari 和 Chrome */
+        -o-transition: margin-left 400ms; /* Opera */
+        animation-fill-mode:forwards;
     }
     .clickLayer{
         height: 100%;

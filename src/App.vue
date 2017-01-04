@@ -1,6 +1,5 @@
 <template>
-  <div id="app" :style="{height:height+'px'}"  v-scroll="scrollEvent">
-    <!--<mainPage></mainPage>-->
+  <div id="app" :style="{height:height+'px'}">
     <router-view></router-view>
   </div>
 </template>
@@ -19,15 +18,15 @@
       this.height=height;
     },
     methods:{
-      scrollEvent:function(e,position){
-        var uri=e.srcElement.baseURI
-        if(uri.indexOf('index/teaCulture')){
+      // scrollEvent:function(e,position){
+      //   var uri=e.srcElement.baseURI
+      //   if(uri.indexOf('index/teaCulture')){
 
-        }
-        if(uri.indexOf('index/product')){
+      //   }
+      //   if(uri.indexOf('index/product')){
 
-        }
-      }
+      //   }
+      // }
     }
   }
 </script>

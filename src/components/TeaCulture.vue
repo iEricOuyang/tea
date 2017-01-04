@@ -1,5 +1,5 @@
 <template>
-    <div class="container"  style="margin-bottom:100px;">
+    <div class="container"  style="margin-bottom:100px;" v-infinite-scroll="scrollEvent" infinite-scroll-distance="10" infinite-scroll-disabled="busy">
          <div class="typeMenu">
             <div class="typeMenuList">
                 <div class="typeMenuItem" v-for="(item,index) in cultureTypeList" :class="{typeChoosedStyle:item.choosed}" @click="showTeaCultureList(index)">{{item.teaclasstionName}}</div>
@@ -13,11 +13,16 @@
                     <div class="describeContent">{{item.sampleteaIntroduce}}</div>
                 </div>
             </div>
+            <div class="nsr-card-loading" :class="{hideLoading:loadOver}">
+                <loading>
+                </loading>
+            </div>
         </div>
     </div>
 </template>
 <script>
     import router from '../routers.js'
+    import Loading from '../components/loading'
     var TeaCulture={
         name:'teaCulture',
         data:function(){
@@ -26,8 +31,14 @@
                 cultureList:[],
                 pageNow:1,
                 imgWidth:'100%',
-                interval:null
+                loadOver:false,
+                cultureListTotal:0,
+                busy:true,
+                currentTypeIndex:0,
             }
+        },
+        components:{
+            Loading
         },
         computed:{
             imgHeight:function(){
@@ -42,9 +53,7 @@
             showTeaCultureList:function(index){
                 var _this=this;
                 _this.pageNow=1;
-                if(this.interval!=null){
-                    clearInterval(this.interval);
-                }
+                _this.currentTypeIndex=index;
                 for(var i=0;i<this.cultureTypeList.length;i++){
                     if(i==index){
                         this.cultureTypeList[i].choosed=true;
@@ -56,6 +65,10 @@
                 this.utils.ajax(this.utils.host,'getSampleteaList.json',{params: {teaclasstionId:this.cultureTypeList[index].teaclasstionId,pageNow:1,pageSize:8}},teaCultureList_callback);
                 function teaCultureList_callback(response){
                    _this.cultureList=[];
+                   _this.cultureListTotal=response.body.total;
+                   if(_this.cultureListTotal<8){
+                        _this.loadOver=true;
+                    }
                    //sampleteaIntroduce sampleteaName sampleteaId  sampleteaImg
                    var result=response.body.data;
                    for(var i=0;i<result.length;i++){
@@ -66,27 +79,35 @@
                        }
                    }
                    _this.cultureList=result;
+                   _this.busy=false;
                    _this.$nextTick( () => {
                         // _this.imgWidth=_this.$refs.foo[0].width;
                         _this.imgWidth=$('.content').children('.teaCultureItem:first').find('img').width();
                     })
-                   _this.interval=setInterval(function(){
-                        if(_this.pageNow==Math.ceil(response.body.total/8)){
-                            clearInterval(_this.interval);
-                        }else{
-                            _this.pageNow++;
-                            _this.utils.ajax(_this.utils.host,'getSampleteaList.json',{params: {teaclasstionId:_this.teaTypeList[index].teaclasstionId,pageNow:_this.pageNow,pageSize:8}},teaCultureList_callback);
-                            function teaCultureList_callback(response){
-                                var result=response.body.data;
-                                for(var i=0;i<result.length;i++){
-                                    result[i].sampleteaImg=_this.utils.imgHost+result[i].sampleteaImg;
-                                    _this.cultureList.push(result[i]);
-                                }
-                            }
-
-                        }
-                    },1000)
                 }
+            },
+            scrollEvent:function(){
+                if(this.pageNow==Math.ceil(this.cultureListTotal/8)){
+                    (function(_this){
+                        setTimeout(function(){
+                            _this.loadOver=true;   
+                        },1000)
+                    })(this)
+                    return;
+                }
+                var _this=this;
+                this.busy=true;
+                this.pageNow++;
+                this.utils.ajax(this.utils.host,'getSampleteaList.json',{params: {teaclasstionId:this.teaTypeList[this.currentTypeIndex].teaclasstionId,pageNow:this.pageNow,pageSize:8}},teaCultureList_callback);
+                function teaCultureList_callback(response){
+                    var result=response.body.data;
+                    for(var i=0;i<result.length;i++){
+                        result[i].sampleteaImg=_this.utils.imgHost+result[i].sampleteaImg;
+                        _this.cultureList.push(result[i]);
+                    }
+                    _this.busy=false;
+                }
+
             }
         },
         mounted:function(){
@@ -188,5 +209,12 @@
         right:0;
         padding:0 20px 1px 45px;
         background:url(http://www.uedsc.com/wp-content/uploads/2015/11/ellipsis_bg.png) repeat-y;
+    }
+    .nsr-card-loading{
+        margin: 30px auto 130px auto;
+    }
+
+    .hideLoading{
+        display: none;
     }
 </style>

@@ -3,10 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import $ from 'jquery'
+import infiniteScroll from 'vue-infinite-scroll'
 import router from './routers.js'
 import util from './utils.js'
-import VueScroll from  'vue-scroll'
-Vue.use(VueScroll)
+import '../node_modules/font-awesome/css/font-awesome.min.css'
+Vue.use(infiniteScroll)
+
 /* eslint-disable no-new */
 // new Vue({
 //   el: '#app',

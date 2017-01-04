@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "jquery": "^2.2.3",
+    "font-awesome": "^4.6.3",
     "vue": "^2.1.0",
+    "vue-infinite-scroll": "^2.0.0",
     "vue-scroll": "^2.0.1"
   },
   "devDependencies": {
