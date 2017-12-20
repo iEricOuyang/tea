@@ -10,19 +10,19 @@
             <div class="typeLogoList">
                 <div class="typeLogoItem">
                     <div><img  src="../assets/typeLogo_1.png"/></div>
-                    <div style="border-right:1px solid rgb(127,125,122); border-left:1px solid rgb(127,125,122);"><router-link to="/index/product"><img  src="../../static/img/Tea-products.png"/></router-link></div>
+                    <div style="border-right:1px solid rgb(127,125,122); border-left:1px solid rgb(127,125,122);"><router-link to="/index/product"><img  src="../assets/Tea-products.png"/></router-link></div>
                 </div>
                 <div class="typeLogoItem">
                     <div><img  src="../assets/typeLogo_2.png"/></div>
-                    <div style="border-right:1px solid rgb(127,125,122);"><router-link to="/index/teaCulture"><img  src="../../static/img/Tea-culture.png"/></router-link></div>
+                    <div style="border-right:1px solid rgb(127,125,122);"><router-link to="/index/teaCulture"><img  src="../assets/Tea-culture.png"/></router-link></div>
                 </div>
                 <div class="typeLogoItem">
                     <div><img  src="../assets/typeLogo_3.png"/></div>
-                    <div style="border-right:1px solid rgb(127,125,122);"><router-link to="/index/about-us"><img  src="../../static/img/About-us.png"/></router-link></div>
+                    <div style="border-right:1px solid rgb(127,125,122);"><router-link to="/index/about-us"><img  src="../assets/About-us.png"/></router-link></div>
                 </div>
                 <div class="typeLogoItem">
                     <div><img  src="../assets/typeLogo_4.png"/></div>
-                    <div style="border-right:1px solid rgb(127,125,122);"><router-link to="/index/contact"><img  src="../../static/img/Contact-number.png"/></router-link></div>
+                    <div style="border-right:1px solid rgb(127,125,122);"><router-link to="/index/contact"><img  src="../assets/Contact-number.png"/></router-link></div>
                 </div>
             </div>
         </div>
