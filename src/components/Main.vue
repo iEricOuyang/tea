@@ -64,7 +64,7 @@
 <style scoped>
 
     .mainStyle{
-        background-image:url(/static/img/bg.jpg);
+        background-image:url(~/static/img/bg.jpg);
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -92,7 +92,7 @@
     }
     .bottom{
         height:13%;
-        background-image: url(/static/img/bottomImg.png);
+        background-image: url(~/static/img/bottomImg.png);
         background-repeat: no-repeat;
         background-size: cover;
     }
