@@ -16,7 +16,7 @@
             this.utils.ajax(this.utils.host,'getAboutus.json',{},callback);
             function callback(response){
                 //aboutUs  corporateAddress  corporateMailbox  corporateName  corporatePhone  corporateTelephone
-                var about=response.body.data.aboutus.aboutUs;
+                var about=response.body.data.aboutus;
                 _this.content=about; 
                 $('.container').find('*').css({'font-size':'30px'});
             }

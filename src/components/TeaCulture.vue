@@ -73,7 +73,7 @@
                    var result=response.body.data;
                    for(var i=0;i<result.length;i++){
                        if(!!result[i].sampleteaImg){
-                           result[i].sampleteaImg=_this.utils.imgHost+result[i].sampleteaImg;
+                           result[i].sampleteaImg=result[i].sampleteaImg;
                        }else{
                            result[i].sampleteaImg='../../static/img/zhanwei.jpg'
                        }
@@ -98,11 +98,11 @@
                 var _this=this;
                 this.busy=true;
                 this.pageNow++;
-                this.utils.ajax(this.utils.host,'getSampleteaList.json',{params: {teaclasstionId:this.teaTypeList[this.currentTypeIndex].teaclasstionId,pageNow:this.pageNow,pageSize:8}},teaCultureList_callback);
+                this.utils.ajax(this.utils.host,'getSampleteaList.json',{params: {teaclasstionId:this.cultureTypeList[this.currentTypeIndex].teaclasstionId,pageNow:this.pageNow,pageSize:8}},teaCultureList_callback);
                 function teaCultureList_callback(response){
                     var result=response.body.data;
                     for(var i=0;i<result.length;i++){
-                        result[i].sampleteaImg=_this.utils.imgHost+result[i].sampleteaImg;
+                        result[i].sampleteaImg=result[i].sampleteaImg;
                         _this.cultureList.push(result[i]);
                     }
                     _this.busy=false;
@@ -115,7 +115,7 @@
             this.utils.ajax(this.utils.host,'getTeaclasstionList.json',{},cultureType_callback);
             function cultureType_callback(response){
                 //teaclasstionId teaclasstionName 
-                var cultureTypeList=response.body.data.teaclasstionList;
+                var cultureTypeList=response.body.data;
                 //增加“全部”选项
                 cultureTypeList.unshift({teaclasstionName:'全部',teaclasstionId:0});
                 _this.cultureTypeList=cultureTypeList;

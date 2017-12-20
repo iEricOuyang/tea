@@ -71,7 +71,7 @@
                         _this.loadOver=true;
                     }
                    for(var i=0;i<result.length;i++){
-                       result[i].teaImg=_this.utils.imgHost+result[i].teaImg;
+                       result[i].teaImg=result[i].teaImg;
                        temp.push(result[i]);
                        if(i%2!=0){
                            _this.teaList.push(temp);
@@ -102,7 +102,7 @@
                     var result=response.body.data;
                     var temp=[];
                     for(var i=0;i<result.length;i++){
-                        result[i].teaImg=_this.utils.imgHost+result[i].teaImg;
+                        result[i].teaImg=result[i].teaImg;
                         temp.push(result[i]);
                         if(i%2!=0){
                             _this.teaList.push(temp);
@@ -118,7 +118,7 @@
             //请求分类列表
             this.utils.ajax(this.utils.host,'getTeatype.json',{},teatype_callback);
             function teatype_callback(response){
-                var teaTypeList=response.body.data.teaTypeList;
+                var teaTypeList=response.body.data;
                 //增加“全部”选项
                 teaTypeList.unshift({teatypeName:'全部',teatypeId:0});
                 _this.teaTypeList=teaTypeList;

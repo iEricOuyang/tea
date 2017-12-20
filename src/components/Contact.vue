@@ -79,8 +79,8 @@
             //请求数据
             this.utils.ajax(this.utils.host,'getAboutus.json',{},callback);
             function callback(response){
-                //aboutUs  corporateAddress  corporateMailbox  corporateName  corporatePhone  corporateTelephone
-                var info=response.body.data.aboutus;
+                //aboutus  corporateAddress  corporateMailbox  corporateName  corporatePhone  corporateTelephone
+                var info=response.body.data;
                 _this.corporateAddress=info.corporateAddress; 
                 _this.corporateMailbox=info.corporateMailbox; 
                 _this.corporateName=info.corporateName; 

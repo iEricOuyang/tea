@@ -16,17 +16,6 @@
       var height=document.documentElement.clientHeight;
       var width=document.documentElement.clientWidth;
       this.height=height;
-    },
-    methods:{
-      // scrollEvent:function(e,position){
-      //   var uri=e.srcElement.baseURI
-      //   if(uri.indexOf('index/teaCulture')){
-
-      //   }
-      //   if(uri.indexOf('index/product')){
-
-      //   }
-      // }
     }
   }
 </script>

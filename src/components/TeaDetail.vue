@@ -35,7 +35,7 @@
                 _this.teaDescribe=result.teaDescribe;
                 _this.teaName=result.teaName;
                 _this.teaIntroduce=result.teaIntroduce;
-                _this.imgUrl=_this.utils.imgHost+result.teaImg;
+                _this.imgUrl=result.teaImg;
                 _this.$nextTick(()=>{
                     $('.content').find('*').css({'font-size':'30px','line-height':'36px','text-align':'left','font-family':'Microsoft YaHei'});
                 })
