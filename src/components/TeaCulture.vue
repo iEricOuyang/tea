@@ -75,7 +75,7 @@
                        if(!!result[i].sampleteaImg){
                            result[i].sampleteaImg=result[i].sampleteaImg;
                        }else{
-                           result[i].sampleteaImg='../../static/img/zhanwei.jpg'
+                           result[i].sampleteaImg='../assets/zhanwei.jpg'
                        }
                    }
                    _this.cultureList=result;

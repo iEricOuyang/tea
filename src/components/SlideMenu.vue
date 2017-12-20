@@ -2,7 +2,7 @@
     <div class="slideMenuContainer">
         <div class="menuItem">
             <div>
-                <img src="../../static/img/logo3.png"/>
+                <img src="../assets/logo3.png"/>
             </div>
         </div>
         <div v-for="(item,index) in menus" class="menuItem" @click="menuClick($event,index)" :class="{beClickedStyle:menus[index].isClicked}">

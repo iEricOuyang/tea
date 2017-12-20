@@ -2,8 +2,8 @@
     <div class="titleBar">
         <div class="barContainer">
             <div>
-                <img id="menuBtn" src="../../static/img/menu.png" @click="toggleMenu"/>
-                <img class="productLogo" src="../../static/img/logo2.png"/>
+                <img id="menuBtn" src="../assets/menu.png" @click="toggleMenu"/>
+                <img class="productLogo" src="../assets/logo2.png"/>
             </div>
         </div>
     </div>

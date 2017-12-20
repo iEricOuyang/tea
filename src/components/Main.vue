@@ -2,26 +2,26 @@
     <div class="mainStyle" :style="{height:winHeight+'px'}">
         <div class="container">
             <div class="center">
-                <img src="../../static/img/logo.png" :style="logoStyle"/>
+                <img src="../assets/logo.png" :style="logoStyle"/>
             </div>
             <div class="center">
-                <img src="../../static/img/chazhuo.png" :style="centerImgStyle"/>
+                <img src="../assets/chazhuo.png" :style="centerImgStyle"/>
             </div>
             <div class="typeLogoList">
                 <div class="typeLogoItem">
-                    <div><img  src="../../static/img/typeLogo_1.png"/></div>
+                    <div><img  src="../assets/typeLogo_1.png"/></div>
                     <div style="border-right:1px solid rgb(127,125,122); border-left:1px solid rgb(127,125,122);"><router-link to="/index/product"><img  src="../../static/img/Tea-products.png"/></router-link></div>
                 </div>
                 <div class="typeLogoItem">
-                    <div><img  src="../../static/img/typeLogo_2.png"/></div>
+                    <div><img  src="../assets/typeLogo_2.png"/></div>
                     <div style="border-right:1px solid rgb(127,125,122);"><router-link to="/index/teaCulture"><img  src="../../static/img/Tea-culture.png"/></router-link></div>
                 </div>
                 <div class="typeLogoItem">
-                    <div><img  src="../../static/img/typeLogo_3.png"/></div>
+                    <div><img  src="../assets/typeLogo_3.png"/></div>
                     <div style="border-right:1px solid rgb(127,125,122);"><router-link to="/index/about-us"><img  src="../../static/img/About-us.png"/></router-link></div>
                 </div>
                 <div class="typeLogoItem">
-                    <div><img  src="../../static/img/typeLogo_4.png"/></div>
+                    <div><img  src="../assets/typeLogo_4.png"/></div>
                     <div style="border-right:1px solid rgb(127,125,122);"><router-link to="/index/contact"><img  src="../../static/img/Contact-number.png"/></router-link></div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
 <style scoped>
 
     .mainStyle{
-        background-image:url(../../static/img/bg.jpg);
+        background-image:url(../assets/bg.jpg);
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -92,7 +92,7 @@
     }
     .bottom{
         height:13%;
-        background-image: url(../../static/img/bottomImg.png);
+        background-image: url(../assets/bottomImg.png);
         background-repeat: no-repeat;
         background-size: cover;
     }
