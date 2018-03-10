@@ -3,7 +3,7 @@ Mock.mock(/getTeaList\.json/, {
   'data|8':[
     {
       teaId: '@integer(1,10)',
-      teaImg: '/static/zhanwei.jpg',
+      teaImg: 'static/zhanwei.jpg',
       teaIntroduce:'@cparagraph(1)',
       teaName: '@cword(2,4)'
     }
