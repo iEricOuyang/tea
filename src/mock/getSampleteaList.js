@@ -3,7 +3,7 @@ Mock.mock(/getSampleteaList\.json/, {
   'data|8':[
     {
       sampleteaId: '@integer(1,10)',
-      sampleteaImg: 'dist/static/img/zhanwei.jpg',
+      sampleteaImg: '/static/zhanwei.jpg',
       sampleteaIntroduce:'@cparagraph(1)',
       sampleteaName: '@cword(2,4)'    
     }
